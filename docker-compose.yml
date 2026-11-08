@@ -5,13 +5,13 @@ services:
     container_name: s-ui
     hostname: "s-ui"
     volumes:
-      - "./db:/app/db"
-      - "./cert:/app/cert"
+      - s-ui-db:/app/db       # 将 ./db 改为命名卷 s-ui-db
+      - s-ui-cert:/app/cert   # 将 ./cert 改为命名卷 s-ui-cert
     tty: true
     restart: unless-stopped
     ports:
-      - "2095:2095"
-      - "2096:2096"
+      - "18645:2095"
+      - "37963:2096"
     networks:
       - s-ui
     entrypoint: "./entrypoint.sh"
@@ -19,4 +19,8 @@ services:
 networks:
   s-ui:
     driver: bridge
-  
+
+# 关键：必须在顶层声明所使用的命名卷
+volumes:
+  s-ui-db:
+  s-ui-cert:
