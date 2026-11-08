@@ -10,8 +10,8 @@ services:
     tty: true
     restart: unless-stopped
     ports:
-      - "2095:2095"
-      - "2095:2096"
+      - "18645:2095"
+      - "37963:2096"
     networks:
       - s-ui
     entrypoint: "./entrypoint.sh"
