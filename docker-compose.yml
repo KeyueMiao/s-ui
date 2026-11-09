@@ -13,8 +13,8 @@ services:
       - "443:443/tcp"
       - "443:443/udp"
       - "8801:8801/udp"
-      - "18645:2095/tcp"
-      - "37963:2096/tcp"
+      - "18645:2095"
+      - "37963:2096"
     networks:
       - s-ui
     entrypoint: "./entrypoint.sh"
